@@ -108,10 +108,10 @@ function compare1(a, b) {
   return a - b;
 }
 function sortArrs() {
-  var result7 = $("result7");
-  result7.style.display = "block";
+  var result7a = $("result7a");
+  result7a.style.display = "block";
   arrs.sort(compare1);
-  result7.innerHTML = `Mảng sau khi sắp xếp: ${arrs}`;
+  result7a.innerHTML = `Mảng sau khi sắp xếp: ${arrs}`;
 }
 //Bai8 Tìm số nguyên tố đầu tiên trong mảng
 function primeNumbers(n) {
