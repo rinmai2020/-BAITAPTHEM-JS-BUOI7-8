@@ -89,12 +89,20 @@ function lastOdd() {
 }
 //Bai 6 Đổi chổ 2 giá trị trong mảng
 function changeInput() {
-  var nhapSoN1 = +$("nhapSoN1").value;
-  var nhapSoN2 = +$("nhapSoN2").value;
-  var result7 = $("result7");
-  result7.style.display = "block";
-  input1=
+  if (arrs.length > 0) {
+    var nhapSoN1 = +$("nhapSoN1").value;
+    var nhapSoN2 = +$("nhapSoN2").value;
+    var result7 = $("result7");
+    result7.style.display = "block";
+    var x = arrs[nhapSoN1];
+    arrs[nhapSoN1] = arrs[nhapSoN2];
+    arrs[nhapSoN2] = x;
+    result7.innerHTML = `Hoán đổi: ${arrs.join(",")}`;
+  } else {
+    result7.innerHTML = "Hoán đổi: 0";
+  }
 }
+
 //Bai 7 Sắp xếp mảng theo thứ tự tăng dần
 function compare1(a, b) {
   return a - b;
@@ -105,8 +113,8 @@ function sortArrs() {
   arrs.sort(compare1);
   result7.innerHTML = `Mảng sau khi sắp xếp: ${arrs}`;
 }
-//Bai8Tìm số nguyên tố đầu tiên trong mảng
-function soNguyenTo(n) {
+//Bai8 Tìm số nguyên tố đầu tiên trong mảng
+function primeNumbers(n) {
   if (n < 2) return -1; // > 2 or chia het chinh no
   for (var i = 2; i < n - 1; i++) {
     if (n % i === 0) {
@@ -115,18 +123,18 @@ function soNguyenTo(n) {
   }
   return 1;
 }
-function timSoNguyenTo() {
+function findPrimeNumbers() {
   var result8 = $("result8");
   result8.style.display = "block";
   var newNT = [];
   for (var i = 0; i < arrs.length; i++) {
-    if (soNguyenTo(arrs[i])) {
+    if (primeNumbers(arrs[i])) {
       newNT.push(arrs[i]);
     }
   }
   if (newNT.length > 0) {
     result8.innerHTML = `Số nguyên tố: ${newNT[0]}`;
-  } else result8.innerHTML = `khong co Số nguyên tố`;
+  } else result8.innerHTML = "Không có Số nguyên tố";
 }
 //Bai 9
 var arrs2 = [];
